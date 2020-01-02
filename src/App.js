@@ -8,19 +8,29 @@ import Particles from 'react-particles-js';
 
 import './App.css';
 const particlesOptions = {
-  particles :{
-    number: {
-      value: 50,
-      density:{
-        enable: true,
-        value_area: 800
-      }
+  "particles": {
+    "number": {
+        "value": 60
+    },
+    "size": {
+        "value": 3
     }
-  }
+},
+"interactivity": {
+    "events": {
+        "onhover": {
+            "enable": true,
+            "mode": "repulse"
+        }
+    }
+}
 };
 class App extends React.Component{
   constructor(props){
     super(props);
+    this.state ={
+      input: ''
+    }
   }
 
   onInputChange = (event) =>{
@@ -38,7 +48,10 @@ class App extends React.Component{
         <Navigation />
         <Logo />
         <Rank />
-        <ImageLinkForm onInputChange={this.onInputChange} onButtonSubmit={this.onButtonSubmit}/>
+        <ImageLinkForm 
+          onInputChange={this.onInputChange}
+          onButtonSubmit={this.onButtonSubmit}
+         />
         <FaceRecognition />
       </div>
     );
